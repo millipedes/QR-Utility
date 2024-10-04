@@ -10,7 +10,7 @@ TEST(bitset, string_to_bitset_1) {
       "01000011",
       "01000100"
   };
-  auto string_as_bits = string_to_bitset(input);
+  auto string_as_bits = V2QRCode::string_to_bitset(input);
 
   auto index = 0;
   for (const auto& bits : string_as_bits) {

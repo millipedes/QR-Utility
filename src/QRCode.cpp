@@ -1,5 +1,7 @@
 #include "QRCode.h"
 
+namespace V2QRCode {
+
 auto string_to_bitset(const std::string& input) -> AsciiBits {
   auto transform_view = input | std::views::transform([](auto c) {
       return std::bitset<8>(static_cast<unsigned char>(c));
@@ -31,8 +33,8 @@ auto QRCode::draw_outline_square(const QRCodeCoord& upper_left,
 }
 
 template <std::size_t N>
-auto QRCode::bits_to_rectangle(const QRCodeCoord& upper_left,
-    const QRCodeCoord& bottom_right, const std::bitset<N>& bits) -> tl::expected<size_t, std::string> {
+auto QRCode::bits_to_rectangle(const QRCodeCoord& upper_left, const QRCodeCoord& bottom_right,
+    const std::bitset<N>& bits) -> tl::expected<size_t, std::string> {
   auto width = bottom_right[0] - upper_left[0] + 1;
   auto height = bottom_right[1] - upper_left[1] + 1;
   auto qty_elements = width * height;
@@ -164,3 +166,5 @@ auto QRCode::draw_qr_code() -> void {
     }
   }
 }
+
+} // namespace V2QRCode

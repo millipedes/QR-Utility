@@ -1,5 +1,7 @@
 #include "SDLWrapper.h"
 
+namespace Graphics {
+
 auto init_sdl() -> void {
   if (SDL_Init(SDL_INIT_VIDEO
         | SDL_INIT_TIMER
@@ -93,3 +95,5 @@ auto cleanup_sdl(SDL_Window* window, const SDL_GLContext& gl_context) -> void {
   SDL_DestroyWindow(window);
   SDL_Quit();
 }
+
+} // namespace Graphics

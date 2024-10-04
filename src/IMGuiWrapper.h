@@ -13,6 +13,8 @@
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_opengl3.h"
 
+namespace Graphics {
+
 namespace fs = std::filesystem;
 
 constexpr static auto default_font_size = 16.0;
@@ -32,3 +34,5 @@ auto setup_fonts(const uint32_t& dpi_factor, const fs::path& font_path,
 auto imgui_render(SDL_Window* window, const ImGuiIO& io) -> void;
 auto set_window_presets() -> void;
 auto imgui_set_style() -> void;
+
+} // namespace Graphics

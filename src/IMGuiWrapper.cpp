@@ -1,5 +1,7 @@
 #include "IMGuiWrapper.h"
 
+namespace Graphics {
+
 auto init_imgui_context() -> ImGuiIO& {
   IMGUI_CHECKVERSION();
   ImGui::CreateContext();
@@ -46,3 +48,5 @@ auto imgui_set_style() -> void {
   auto& style = ImGui::GetStyle();
   style.Colors[ImGuiCol_WindowBg] = ImVec4(0.5f, 0.5f, 0.5f, 1.0f);
 }
+
+} // Graphics

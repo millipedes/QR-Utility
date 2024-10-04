@@ -8,6 +8,8 @@
 
 #include "imgui.h"
 
+namespace V2QRCode {
+
 using AsciiBits = std::vector<std::bitset<8>>;
 
 auto string_to_bitset(const std::string& input) -> AsciiBits;
@@ -56,3 +58,5 @@ struct QRCode {
 };
 
 extern QRCode qr_code_instance;
+
+} // namespace V2QRCode
