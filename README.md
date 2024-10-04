@@ -39,6 +39,8 @@ sudo apt install libgl1-mesa-dev libglfw3-dev libsdl2-dev libgtest-dev libexpect
 
 To build the project you execute the following commands in bash:
 ```
+# to get the imgui submodule
+git submodule update --init --recursive
 mkdir build
 cd build
 # if you do not want to build the tests you can put put the flag:
