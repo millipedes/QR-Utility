@@ -12,7 +12,7 @@ TEST(bitset, string_to_bitset_1) {
   };
   auto string_as_bits = string_to_bitset(input);
 
-  size_t index = 0;
+  auto index = 0;
   for (const auto& bits : string_as_bits) {
     EXPECT_EQ(bits.to_string(), expected[index++]);
   }

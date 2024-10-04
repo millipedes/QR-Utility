@@ -29,6 +29,9 @@ auto main(void) -> int {
 
   imgui_set_style();
   set_window_presets();
+  qr_code_instance.type = DataType::Binary;
+  qr_code_instance.to_encode = std::string("hello world");
+  qr_code_instance.QRCode::draw_version_two_presets();
 
   auto done = false;
   while (!done) {
