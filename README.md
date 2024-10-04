@@ -1,4 +1,4 @@
-# :hammer: Quick Response (QR) Code Version 1 Utility
+# :hammer: Quick Response (QR) Code Version 2 Utility
 This is an implementation of a QR code utility used for generating QR codes
 given some ascii text input by the user.
 
