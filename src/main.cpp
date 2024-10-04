@@ -1,5 +1,6 @@
 #include <stdexcept>
 
+#include "QRCode.h"
 #include "IMGuiWrapper.h"
 #include "SDLWrapper.h"
 
@@ -26,6 +27,9 @@ auto main(void) -> int {
     throw std::runtime_error(font_setup.error());
   }
 
+  imgui_set_style();
+  set_window_presets();
+
   auto done = false;
   while (!done) {
     done = poll_events_sdl(window);
@@ -37,7 +41,9 @@ auto main(void) -> int {
     start_imgui_frame();
 
     ImGui::Begin("Test Window 1");
-    ImGui::Text("Hello IMGUI");
+
+    qr_code_instance.draw_qr_code();
+
     ImGui::End();
 
     imgui_render(window, io);

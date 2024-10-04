@@ -36,3 +36,13 @@ auto imgui_render(SDL_Window* window, const ImGuiIO& io) -> void {
   ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
   SDL_GL_SwapWindow(window);
 }
+
+auto set_window_presets() -> void {
+  ImGui::SetNextWindowSize(ImVec2(400, 300));
+  ImGui::SetNextWindowPos(ImVec2(100, 100));
+}
+
+auto imgui_set_style() -> void {
+  auto& style = ImGui::GetStyle();
+  style.Colors[ImGuiCol_WindowBg] = ImVec4(0.5f, 0.5f, 0.5f, 1.0f);
+}

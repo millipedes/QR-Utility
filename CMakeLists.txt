@@ -13,6 +13,7 @@ set(SRC_DIR "${CMAKE_SOURCE_DIR}/src")
 set(SRC_FILES
   ${SRC_DIR}/IMGuiWrapper.cpp
   ${SRC_DIR}/SDLWrapper.cpp
+  ${SRC_DIR}/QRCode.cpp
 )
 
 set(IMGUI_DIR imgui)
@@ -43,18 +44,27 @@ target_link_libraries(qr_util PRIVATE
   tl::expected
 )
 
-set(TEST_DIR "${CMAKE_SOURCE_DIR}/test")
 option(BUILD_TESTS "Build Test Suite" ON)
 if(BUILD_TESTS)
+  set(TEST_DIR "${CMAKE_SOURCE_DIR}/test")
   enable_testing()
-  set(TEST_SRC_FILES)
-  add_executable(tests ${TEST_SRC_FILES} test/main.cpp)
-  target_link_libraries(tests
+  set(TEST_SRC_FILES
+    ${TEST_DIR}/QRCodeTest.cpp
+  )
+  add_executable(tests ${IMGUI_SOURCES} ${SRC_FILES} ${TEST_SRC_FILES} test/main.cpp)
+  target_link_libraries(tests PRIVATE
     gtest
     gtest_main
     pthread
     glfw
     OpenGL::GL
     SDL2
+    tl::expected
+  )
+  target_include_directories(tests PRIVATE
+    ${SRC_DIR}
+    ${IMGUI_DIR}
+    ${IMGUI_DIR}/backends
+    ${SDL2_INCLUDE_DIRS}
   )
 endif()

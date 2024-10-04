@@ -30,3 +30,5 @@ auto start_imgui_frame() -> void;
 auto setup_fonts(const uint32_t& dpi_factor, const fs::path& font_path,
     const ImGuiIO& io) -> tl::expected<uint32_t, std::string>;
 auto imgui_render(SDL_Window* window, const ImGuiIO& io) -> void;
+auto set_window_presets() -> void;
+auto imgui_set_style() -> void;
